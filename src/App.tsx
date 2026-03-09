@@ -1,31 +1,21 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-
-import { ProductsPage } from "./pages/ProductsPage"
-import { ProductPage } from "./pages/ProductPage"
-import { CategoriesPage } from "./pages/CategoriesPage"
-
-import { Navbar } from "./components/Navbar/Navbar"
+import CssBaseline from "@mui/material/CssBaseline"
+import Box from "@mui/material/Box"
+import Navbar from "./components/Navbar/Navbar"
+import ProductsPage from "./pages/ProductsPage"
 
 function App() {
-
   return (
+    <>
+      <CssBaseline />
 
-    <BrowserRouter>
+      <Box sx={{ background: "#fff8fb", minHeight: "100vh" }}>
 
-      <Navbar/>
+        <Navbar />
 
-      <Routes>
+        <ProductsPage />
 
-        <Route path="/" element={<ProductsPage/>}/>
-
-        <Route path="/product/:id" element={<ProductPage/>}/>
-
-        <Route path="/categories" element={<CategoriesPage/>}/>
-
-      </Routes>
-
-    </BrowserRouter>
-
+      </Box>
+    </>
   )
 }
 

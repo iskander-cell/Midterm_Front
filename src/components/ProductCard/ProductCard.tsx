@@ -1,48 +1,62 @@
-import type { IProduct } from "../../types"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import CardMedia from "@mui/material/CardMedia"
+import Typography from "@mui/material/Typography"
 
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
-import CardMedia from '@mui/material/CardMedia'
-import Button from '@mui/material/Button'
-
-import { Link } from "react-router-dom"
-
-interface Props {
-    product: IProduct
+type Props = {
+  product: {
+    id: number
+    title: string
+    price: number
+    thumbnail: string
+  }
 }
 
-export const ProductCard = ({product}: Props) => {
+export default function ProductCard({ product }: Props) {
 
-    return (
-        <Card sx={{maxWidth:300}}>
+  return (
+    <Card
+      sx={{
+        borderRadius: 4,
+        background: "#fff",
+        boxShadow: "0 5px 20px rgba(0,0,0,0.05)",
+        transition: "0.2s",
+        "&:hover": {
+          transform: "translateY(-6px)"
+        }
+      }}
+    >
 
-            <CardMedia
-                component="img"
-                height="200"
-                image={product.thumbnail}
-            />
+      <CardMedia
+        component="img"
+        height="180"
+        image={product.thumbnail}
+        alt={product.title}
+      />
 
-            <CardContent>
+      <CardContent>
 
-                <Typography variant="h6">
-                    {product.title}
-                </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            fontSize: 18,
+            mb: 1
+          }}
+        >
+          {product.title}
+        </Typography>
 
-                <Typography color="secondary">
-                    ${product.price}
-                </Typography>
+        <Typography
+          sx={{
+            color: "#ff6b9a",
+            fontWeight: 600
+          }}
+        >
+          ${product.price}
+        </Typography>
 
-                <Button
-                    component={Link}
-                    to={`/product/${product.id}`}
-                    variant="outlined"
-                >
-                    Details
-                </Button>
+      </CardContent>
 
-            </CardContent>
-
-        </Card>
-    )
+    </Card>
+  )
 }
