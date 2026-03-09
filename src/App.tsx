@@ -8,12 +8,15 @@ function App() {
     <>
       <CssBaseline />
 
-      <Box sx={{ background: "#fff8fb", minHeight: "100vh" }}>
-
+      <Box
+        sx={{
+          background: "#fff8fb",
+          minHeight: "100vh",
+          width: "100%",
+        }}
+      >
         <Navbar />
-
         <ProductsPage />
-
       </Box>
     </>
   )
